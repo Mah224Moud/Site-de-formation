@@ -1,0 +1,458 @@
+*{
+    margin: 0;
+}
+
+body
+{
+    background: url(../Images/fond5.png);
+    background-attachment:scroll;
+    background-size: cover;
+}
+nav
+{
+    width: 400px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    transition: all 2s ease-in-out;
+}
+
+#menu
+{
+    width: 400px;
+    height: 70px;
+    position: relative;
+    top: 0;
+    right: 0;
+    
+}
+ul
+{
+    margin: 10px;
+    display: flex;
+	justify-content: center;
+    position: absolute;
+    align-items: center;
+	align-content: center;
+    top: 0px;
+    right: 0;
+    z-index: 10;
+}
+li
+{
+    list-style-type: none;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-left: 10px;
+    box-shadow: 0 2px 12px 5px rgb(0, 0, 0);
+}
+li:hover
+{
+    background-color: rgb(214, 208, 208);
+    transition: all 1s ease-out;
+}
+
+.profil
+{
+    position: relative;
+}
+#cercle
+{
+
+    margin-left:10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    padding: 15px;
+    height: 25px;
+    width: 25px;
+
+
+}
+.image_menu
+{
+    width: 60px;
+    height: 60px;
+    align-items: flex-end;
+    border-radius: 50%;
+    position: absolute;
+    right: 8px;
+    top: -5px;
+}
+#enligne {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background: green;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+}
+a
+{
+    text-decoration: none;
+}
+
+
+.phraseAccueil
+{
+    position: absolute;
+    top: 95px;
+    margin-left: 10px;
+    transition: all ease-in-out 1s;
+}
+.titre
+{
+    display: flex;
+    position: absolute;
+    top: 105px;
+    width: 100%;
+    justify-content: center;
+    transition: ease-in-out 1s;
+    font-family: "Brush Script MT", cursive;
+    font-size: 20px;
+}
+h1
+{
+    text-align: center;
+    
+}
+
+
+
+/***********************Index Users**********************/
+#accueil
+{
+    position: absolute;
+    top: 170px;
+    margin: 1% 0;
+    width: 99.9%;
+
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: space-around;
+
+    transition: ease-in-out 1s;
+}
+
+#accueil a .cours, #accueil a .forum, #accueil a .login
+{
+    width: 500px;
+    height: 390px;
+    border-radius: 25px;
+    margin-top: 10px;
+
+    transition: ease-in-out 1s;
+}
+
+#accueil a .cours:hover, #accueil a .forum:hover, #accueil a .login:hover
+{
+    width: 600px;
+    height: 500px;
+    border-radius: 25px;
+    transition: ease-in-out 1s;
+}
+
+/*petit texte indicatif en bas des menus de l'accueil*/
+#accueil a div
+{
+    display: none;
+    text-align: center;
+    color: brown;
+    font-family: "Brush Script MT", cursive;
+    font-weight: bold;
+    font-size: 40px;
+    transition: ease-in-out 1s;
+}
+
+#accueil a:hover div
+{
+    display: block;
+    transition: ease-in-out 1s;
+}
+
+
+
+@media screen and (max-width: 1430px) 
+{
+    .titre
+    {
+        top: 130px;
+        transition: ease-in-out 1s;
+    }
+    #accueil
+    {
+        top: 220px;
+        transition: ease-in-out 1s;
+    }
+}
+
+@media screen and (max-width: 1250px) 
+{
+    .titre
+    {
+        top: 130px;
+
+        margin: 0 ;
+        width: 100%;
+        transition: ease-in-out 1s;
+    }
+    #accueil
+    {
+        top: 250px;
+        transition: ease-in-out 1s;
+    }
+}
+
+@media screen and (max-width: 1230px) 
+{
+    .titre
+    {
+        top: 130px;
+        transition: ease-in-out 1s;
+    }
+    #accueil
+    {
+        top: 250px;
+        transition: ease-in-out 1s;
+    }
+}
+
+
+
+
+/*Tablette*/
+@media screen and (max-width: 800px) 
+{
+    .titre
+    {
+        top: 130px;
+        transition: ease-in-out 1s;
+    }
+
+    #accueil
+    {
+        top: 220px;
+        transition: ease-in-out 1s;
+    }
+}
+
+/*Mobile*/
+
+@media screen and (max-width: 500px) 
+{
+    .titre
+    {
+        top: 130px;
+        transition: ease-in-out 1s;
+    }
+
+    #accueil
+    {
+        top: 220px;
+        transition: ease-in-out 1s;
+    }
+    #accueil a .cours, #accueil a .forum, #accueil a .login
+    {
+        width: 300px;
+        height: 300px;
+        transition: ease-in-out 1s;
+    }
+    #accueil a .cours:hover, #accueil a .forum:hover, #accueil a .login:hover
+    {
+        width: 350px;
+        height: 350px;
+        transition: ease-in-out 1s;
+    }
+
+}
+
+
+
+
+
+
+/********************* FORMULAIRES ***********/
+
+#form-inscription, #form-connexion
+{
+    /*centrer un formulaire*/
+    position:absolute;
+   top:350px;
+   left:50%;
+   width:450px; /* A toi de donner la bonne largeur */
+   height:300px; /* A toi de donner la bonne hauteur */
+   margin-left:-225px; /* -largeur/2 */
+   margin-top:-150px; /* -hauteur/2 */
+
+   transition: all 2s ease-in-out;
+}
+
+form input[type=text], form input[type=date], form input[type=email], form input[type=password]
+{
+    border-radius: 15px;
+}
+fieldset
+{
+    border-radius: 15px;
+}
+
+legend
+{
+    text-align: center;
+    margin: auto;
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+}
+
+.erreurs
+{
+    color: white;
+    background-color: red;
+    width: 350px;
+}
+
+#form#form-inscription p, #form-connexion p
+{
+    text-align: center;
+}
+/*Mobile*/
+@media screen and (max-width: 500px)
+{
+    #form-inscription, #form-connexion
+    {
+        left:55%;
+        top: 380px;
+        width:400px; /* A toi de donner la bonne largeur */
+        height:300px; /* A toi de donner la bonne hauteur */
+        margin-left:-225px; /* -largeur/2 */
+        margin-top:-150px
+    }
+    
+}
+
+@media screen and (max-width: 400px)
+{
+    #form-inscription, #form-connexion
+    {
+        left:56.5%;
+        top: 380px;
+        width:400px; /* A toi de donner la bonne largeur */
+        height:300px; /* A toi de donner la bonne hauteur */
+        margin-left:-225px; /* -largeur/2 */
+        margin-top:-150px
+    }
+    
+}
+
+@media screen and (max-width: 399px)
+{
+    #form-inscription, #form-connexion
+    {
+        left:59%;
+        top: 380px;
+        width:340px; /* A toi de donner la bonne largeur */
+        height:300px; /* A toi de donner la bonne hauteur */
+        margin-left:-225px; /* -largeur/2 */
+        margin-top:-150px
+    }
+    
+}
+
+
+
+
+/*******************Admin***********************/
+.admin-profil-link
+{
+    cursor: default;
+}
+
+/****************PROFIL*****************/
+
+.cadre
+{
+    border:2px solid rgb(255, 255, 255);
+    padding: 0px 25px;
+    margin: 50px 20%;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px 5px rgb(0, 0, 0);
+    /**********/
+
+}
+.autres
+{
+   margin-top: 10px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .cadre
+    {
+        margin: 50px 3%;
+    }
+}
+
+.cadre p
+{
+   font-size: 25px;
+}
+
+.cadre:hover
+{
+    background-color: rgb(214, 208, 208);
+    transition: all 1s ease-out;
+}
+.profil-titre
+{
+    font-family: "Brush Script MT", cursive;
+    font-size: 50px;
+}
+
+#profil-button
+{
+    position: absolute;
+    display: flex;
+    width: 230px;
+    right: 20%;
+}
+
+#profil-modifier
+{
+    border: 1px solid gray;
+    width:80px;
+    padding: 7px;
+    box-shadow: 0 2px 12px 5px rgb(0, 0, 0);
+}
+#profil-deconnexion
+{
+    border: 1px solid gray;
+    width:110px;
+    padding: 7px;
+    margin-left:10px;
+    box-shadow: 0 2px 12px 5px rgb(0, 0, 0);
+}
+
+#profil-modifier:hover, #profil-deconnexion:hover
+{
+    background-color: gray;
+    transition: all 1s ease-out;
+    color: white;
+}
+
+.image-profil
+{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+span
+{     
+    padding: 50px 10px;
+    font-size: 25px;
+}

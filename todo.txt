@@ -1,0 +1,21 @@
+Todo list ou backlog => explication detailler de comment on fait a savoir:
+
+
+base de donnees
+modele relationnelle
+
+
+
+
+### Scrum => distribution des taches (donner les % de travailles au rapport)
+
+1- Admin ou scrum master = charger d'organiser les reunions
+2- productonneur= interagir avec la prof
+3- autres dev
+
+
+
+###
+Rapport d'au moins 20pages dans lequel on explique la modelisation (uses cases, diagramme de clase pour la bd) et le reste on explique le fonctionnement site avec tout ce qui est fonctionnalité et partage des taches et biensur noter le % de taffe de chacun.
+Mise en place d'un systeme de point sur les differentes taches du site en fonction de la durée de chaque tache ==> reunion reguliere (ça aussi a mettre dans le rapport). Important
+Marquer aussi le jour du rendu de rapport
