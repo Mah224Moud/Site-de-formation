@@ -1,0 +1,12 @@
+.bloc-msg
+{
+    background-color: brown;
+    display: flex;
+	flex-direction: column;
+}
+
+button
+{
+    width: auto;
+    color: white;
+}

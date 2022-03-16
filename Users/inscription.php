@@ -39,10 +39,11 @@
         {
             $erreurs['pseudo']= "Le pseudo est obligatoire";
         }
-        if (isset($_FILES) && $_FILES['p_profil']['size'] == 0)
+        if ($_FILES['p_profil']['name']!="" && $_FILES['p_profil']['size']==0)
         {
-            $erreurs['p_profil']= "Merci de choisir une photo dont la taille est inférieur ou égale à 2Mb";
+                $erreurs['p_profil']= "Merci de choisir une photo dont la taille est inférieur ou égale à 2Mb";
         }
+        
 
 
         if($_POST['confirmation'] != $_POST['mdp'])
@@ -69,11 +70,13 @@
                 if(!$pseudoTrouve)
                 {
                     $motDePasse= password_hash($_POST['mdp'],  PASSWORD_DEFAULT);
+
+
                     $insertion = 'INSERT INTO `membres`(`id`, `nom`, `prenom`, `date`, `username`, `mail`, `mot_de_passe`, `civilite`, `photo`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)';
                     $creation = $mysqlClient->prepare($insertion);
 
                     //si pas de photo choisi mais que genre soit homme alors profil par defaut homme
-                    if (empty($_FILES) && (isset($_POST['civilite']) && $_POST['civilite']=="Mr"))
+                    if ($_FILES['p_profil']['name']=="" && (isset($_POST['civilite']) && $_POST['civilite']=="Mr"))
                     {
                         $photo="../Images/homme.jpg";
                         //si tout bon creer le compte
@@ -81,7 +84,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest1");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -89,12 +92,12 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\ntest2");</script>
                             <?php
                         }
                     }
                     // si tjrs pas de photo mais genre femme, alors photo femme
-                    elseif (empty($_FILES) && (isset($_POST['civilite']) && $_POST['civilite']!="Mr"))  
+                    elseif ($_FILES['p_profil']['name']=="" && (isset($_POST['civilite']) && $_POST['civilite']!="Mr"))  
                     {
                         $photo="../Images/femme.jpeg";
                         //si tout bon creer le compte
@@ -102,7 +105,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest3");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -110,7 +113,7 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!4");</script>
                             <?php
                         }
                     }//s'il choisi une photo alors prendre celle ci
@@ -129,7 +132,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest5");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -137,7 +140,7 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\ntest6");</script>
                             <?php
                         }
                     }

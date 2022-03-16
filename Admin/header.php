@@ -42,7 +42,7 @@ if (isset($_SESSION['admin'])): ?>
             <a href="">Cours</a>
             </li>
             <li>
-                <a href="">Forum</a>
+                <a href="forum.php">Forum</a>
             </li>
             <li>
                 <a href="?deco=<?=$_SESSION['admin'] ?>">Deconnexion</a>

@@ -1,5 +1,5 @@
 Todo list ou backlog => explication detailler de comment on fait a savoir:
-
+diffferentes fonctionnalité 
 
 base de donnees
 modele relationnelle
