@@ -70,8 +70,7 @@
                 if(!$pseudoTrouve)
                 {
                     $motDePasse= password_hash($_POST['mdp'],  PASSWORD_DEFAULT);
-
-
+                    
                     $insertion = 'INSERT INTO `membres`(`id`, `nom`, `prenom`, `date`, `username`, `mail`, `mot_de_passe`, `civilite`, `photo`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)';
                     $creation = $mysqlClient->prepare($insertion);
 

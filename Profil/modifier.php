@@ -11,19 +11,19 @@
         if(isset($_POST['modif_mini_bio']) && !empty($_POST['modif_mini_bio']))
         {
             $mini= nl2br($_POST[modif_mini_bio]);
-            $modif= $mysqlClient->prepare("UPDATE membres SET mini_bio='$mini'  where id=? ");
+            $modif= $mysqlClient->prepare("UPDATE membres,profil SET mini_bio='$mini' WHERE membres.id= profil.idUser and  id=? ");
             $modif->execute([$_SESSION['id']]);
         }
         if(isset($_POST['modif_bio']) && !empty($_POST['modif_bio']))
         {
             $bio= nl2br($_POST[modif_bio]);
-            $modif= $mysqlClient->prepare("UPDATE membres SET bio='$bio' where id=? ");
+            $modif= $mysqlClient->prepare("UPDATE membres,profil SET bio='$bio' WHERE membres.id= profil.idUser and  id=? ");
             $modif->execute([$_SESSION['id']]);
         }
         if(isset($_POST['modif_signature']) && !empty($_POST['modif_signature']))
         {
             $signes= nl2br($_POST[modif_signature]);
-            $modif= $mysqlClient->prepare("UPDATE membres SET signature= '$signes'   where id=? ");
+            $modif= $mysqlClient->prepare("UPDATE membres,profil SET signature= '$signes' WHERE membres.id= profil.idUser and id=? ");
             $modif->execute([$_SESSION['id']]);
         }
 

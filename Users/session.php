@@ -5,7 +5,7 @@ include_once('database.php');
 //Creation de toutes les sessions
     if(isset($_SESSION["username"]))
     {
-            $search= $mysqlClient->prepare("SELECT * from membres where username=?");
+            $search= $mysqlClient->prepare("SELECT * from membres, profil where membres.id=profil.idUser and username=?");
             $search->execute([$_SESSION['username']]);
             if($search->rowCount() > 0)
             {
@@ -33,5 +33,9 @@ include_once('database.php');
                     $_SESSION['signature']= $trouve['signature'];
                 }
             }
+
+
+
+
     }
 ?>

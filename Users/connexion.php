@@ -32,6 +32,21 @@ include_once('session.php');
             {   foreach ($reponse as $reponses)
                 if($email == $reponses['mail'] && password_verify($_POST['mot_d_passe'], $reponses['mot_de_passe']))
                 {
+                    $id= $reponses['id'];
+                    $requeteID = "SELECT * FROM membres,profil WHERE membres.id=profil.idUser and profil.idUser='$id'";
+                    $rechercheID = $mysqlClient->query($requeteID);
+                    $rechercheID->execute();
+                    $trouve = $rechercheID->fetchAll();
+
+                    echo $id;
+
+                    if(!$trouve)
+                    {
+                        //inserer l'id pour gerer le profil
+                        $insert= $mysqlClient->prepare("INSERT INTO `profil` (`idUser`, `mini_bio`, `bio`, `signature`) VALUES ('$id', '', '', '')");
+                        $insert->execute();
+                    }
+
                     //si l'admin est connecté
                     if($reponses['username']=="Admin")
                     {

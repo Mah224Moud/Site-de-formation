@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 16 mars 2022 à 02:07
+-- Généré le : mer. 16 mars 2022 à 03:56
 -- Version du serveur :  8.0.28-0ubuntu0.20.04.3
 -- Version de PHP : 7.4.3
 
@@ -62,7 +62,11 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `date`, `username`, `mail`, `mot_d
 (31, 'Rihanna', 'Umbrella', '2010-06-17', 'riri', 'riri@test', '$2y$10$Erk.MorXGfURBwZ027qFfODdPL5x1eOHRYJvl3HpisPFRivt.7Mky', 'Mme/Mlle', '../Images/woman-g728dacd49_1920.jpg', '2022-03-06 23:12:50'),
 (32, 'DIALLO', 'Hermano', '2019-09-12', 'hermanofr', 'hermanofr@gmail.com', '$2y$10$mkstMsDJzjbkWsDjQFYMSezI4edICY4WCfVbjhHisRsJ/d1J7HuOe', 'Mr', '../Images/06A4EEEA-00F6-484B-BE1B-EE5148F0A5BA.jpeg', '2022-03-06 23:18:46'),
 (33, 'Diallo', 'Moud', '2003-08-08', 'moud ', 'moud@test.com', '$2y$10$xAS1X2BcLI97c5phgA3UYuE1jxE3lw0sa14VUqa.Vj2.zoGZCuZjy', 'Mr', '../Images/EDD27F2C-43D8-4B47-AE97-520262B2CA90.jpeg', '2022-03-08 00:18:40'),
-(38, 'DIALLO', 'Mamoudou', '2022-03-09', 'mah_moud224', 'doumouma113@gmail.com', '$2y$10$7h5S63Gf3bgwtMp/9k3HVeHq43npnqZIAdDbt1TaP/TsQwUo0F8Ry', 'Mr', '../Images/essai4.jpg', '2022-03-16 02:00:21');
+(38, 'DIALLO', 'Mamoudou', '2022-03-09', 'mah_moud224', 'doumouma113@gmail.com', '$2y$10$7h5S63Gf3bgwtMp/9k3HVeHq43npnqZIAdDbt1TaP/TsQwUo0F8Ry', 'Mr', '../Images/essai4.jpg', '2022-03-16 02:00:21'),
+(39, 'd', 'd', '2022-03-08', 'tttest', 'essait@test', '$2y$10$hFtF8Bc9QdOrv9zptDVjEOGl7Lu6qFldPCKKYaASsrj468idQRXyq', 'Mr', '../Images/homme.jpg', '2022-03-16 03:30:34'),
+(40, 'deeede', 'ferg', '2022-03-31', 'ss', 'te@dfff', '$2y$10$kNF9U5PlPcS2p3TmMwj6j.pMX3TAk.7ecNC.lBE3LXfudEt8PSznO', 'Mr', '../Images/homme.jpg', '2022-03-16 03:35:22'),
+(41, 'essai', 'essai', '2022-03-07', 'tttttttttttttest', 'eeeeeeeeeeeeees@test', '$2y$10$r87rFHsSE6Vb4FJlhJHn5e87wzc4dRGJP7mmcT6QtGBG15frP4T/u', 'Mr', '../Images/homme.jpg', '2022-03-16 03:47:13'),
+(42, 'M', 'M', '2022-02-28', 'nn', 'nnnnnnnnnn@nnn', '$2y$10$Z1XfQ1glxVfppunRWrl/0uHmA5wyrvfBvLZoS7kGcedOR3FVkWolW', 'Mme/Mlle', '../Images/femme.jpeg', '2022-03-16 03:51:00');
 
 -- --------------------------------------------------------
 
@@ -117,6 +121,20 @@ INSERT INTO `messagerie` (`id`, `username_`, `idUser`, `heure_envoie`, `message`
 (33, 'Moud224', 5, '2022-03-16 01:17:55', 'test bd'),
 (34, 'mah_moud224', 38, '2022-03-16 02:02:31', 'autre test');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `profil`
+--
+
+CREATE TABLE `profil` (
+  `id` int NOT NULL,
+  `idUser` int NOT NULL,
+  `mini_bio` text NOT NULL,
+  `bio` text NOT NULL,
+  `signature` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Index pour les tables déchargées
 --
@@ -135,6 +153,13 @@ ALTER TABLE `messagerie`
   ADD KEY `idUser` (`idUser`);
 
 --
+-- Index pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUser` (`idUser`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -142,13 +167,19 @@ ALTER TABLE `messagerie`
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT pour la table `messagerie`
 --
 ALTER TABLE `messagerie`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT pour la table `profil`
+--
+ALTER TABLE `profil`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -159,6 +190,12 @@ ALTER TABLE `messagerie`
 --
 ALTER TABLE `messagerie`
   ADD CONSTRAINT `messagerie_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `membres` (`id`);
+
+--
+-- Contraintes pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `membres` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
