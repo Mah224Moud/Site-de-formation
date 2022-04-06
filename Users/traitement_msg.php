@@ -20,7 +20,6 @@ if(isset($_POST['msg_send']) && (isset($_POST['msg']) && !empty($_POST['msg'])))
         $insertion = 'INSERT INTO `messagerie` (`id`, `username_`, `idUser`, `message`) VALUES (NULL, ?, ?, ?)';
         $creation = $mysqlClient->prepare($insertion);
         $creation->execute([$_SESSION['username'], $_SESSION['id'], $msg]);
-
         header('location: forum.php');
    }
 }

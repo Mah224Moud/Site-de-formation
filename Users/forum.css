@@ -49,13 +49,13 @@ h1
 	align-items: stretch;
 	align-content: stretch;
 }
-.message:hover
+/*.message:hover
 {
     box-shadow: 0 2px 12px 5px rgb(87, 87, 87);
     background-color: white;
     color: black;
     transition: ease-in-out 0.5s;
-}
+}*/
 .message img
 {
     width: 70px;

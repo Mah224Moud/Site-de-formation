@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once('database.php');
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,42 +45,61 @@
     <div class="global">
         <h1>Forum</h1>
         <div class="cadre-message" id="cadre-msg">
-            <?php
-                $sqlQuery = "SELECT username_, heure_envoie, message, photo FROM membres, messagerie WHERE messagerie.idUser=membres.id ";
-                $recherche = $mysqlClient->prepare($sqlQuery);
-                $recherche->execute();
-                $reponse = $recherche->fetchAll();
-            ?> 
-            <?php foreach ($reponse as $reponses): ?>
-
+            <div id="refresh">
                 <?php
-                    $heureEnvoie= $reponses['heure_envoie'];
-                    $nouveauFormat= strtotime($heureEnvoie);
-                    $nouvelleDate= date("d-M-Y à H:i", $nouveauFormat);
-                ?>
-                <div class="message">
-                    <img src="<?=$reponses['photo']?>" alt="">
-                    <div>
-                       <div>
-                            <strong><em><?= $reponses['username_'] ?></em></strong> <em> <?= $nouvelleDate ?></em> </em>
+                    $sqlQuery = "SELECT username_, heure_envoie, message, photo FROM membres, messagerie WHERE messagerie.idUser=membres.id ORDER BY messagerie.id";
+                    $recherche = $mysqlClient->prepare($sqlQuery);
+                    $recherche->execute();
+                    $reponse = $recherche->fetchAll();
+                ?> 
+                <?php foreach ($reponse as $reponses): ?>
+
+                    <?php
+                        $heureEnvoie= $reponses['heure_envoie'];
+                        $nouveauFormat= strtotime($heureEnvoie);
+                        $nouvelleDate= date("d-M-Y à H:i", $nouveauFormat);
+                    ?>
+                    <div class="message">
+                        <img src="<?=$reponses['photo']?>" alt="">
+                        <div>
+                        <div>
+                                <strong><em><?= $reponses['username_'] ?></em></strong> <em> <?= $nouvelleDate ?></em> </em>
+                            </div>
+                        <p id="posted_msg">
+                                <?= $reponses['message'] ?>
+                            </p>
                         </div>
-                       <p id="posted_msg">
-                            <?= $reponses['message'] ?>
-                        </p>
-                    </div>
-               </div> 
-            <?php endforeach ?>
+                    </div> 
+                <?php endforeach ?>
+            </div>
         </div>
         <?php if(isset($_SESSION["username"])): ?>
             <div id="form-forum">
                 <form action="traitement_msg.php" method="POST">
-                    <textarea name="msg" id="" cols="30" rows="1" placeholder="Ecrire votre message ici..." required></textarea><input type="submit" value="Envoyer" name="msg_send">
+                    <textarea name="msg" id="" cols="30" rows="1" placeholder="Ecrire votre message ici..." required></textarea><input type="submit" value="Envoyer" name="msg_send" id="send_msg">
                 </form>
             </div>
         <?php endif ?>
     </div>
         
         
-        <script>document.getElementById("cadre-msg").scrollTop = document.getElementById("cadre-msg").scrollHeight;</script>
+
+        <script src="../Bibliotheque/jquery.js"></script>
+        <script>
+            function toTheBottom()
+            {
+                document.getElementById("cadre-msg").scrollTop = document.getElementById("cadre-msg").scrollHeight;
+            }
+            $(document).ready(()=>{
+                $('#refresh').load(location.href + " #refresh");
+                setInterval(function(){
+                    $('#refresh').load(location.href + " #refresh");
+                }, 1000);
+
+                toTheBottom();
+            })
+        </script>
+        
+        
 </body>
 </html>

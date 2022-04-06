@@ -1,6 +1,17 @@
 <?php
 //include_once('database.php');
 
+    if(isset($_POST['essai']) && !empty($_POST['essai']))
+    {
+        echo "test";
+        $to      = 'doumouma113@gmail.com';
+        $subject = 'Confirmation Creation Compte';
+        $message = 'Bonjour Moud bienvenue parmi nous!';
+        $headers = 'From: no-reply@example.com';
+        $retour= mail("doumouma113@gmail.com", "Hello", "Essai envoie", "");
+        if($retour)
+            echo "send";
+    }
     
 ?>
 
@@ -17,7 +28,7 @@
     <h1>Bienvenue sur cours</h1>
 
     <form action="" method="post">
-        <input type="email" name="mail" id="">
+        <input type="text" name="essai" id="">
         <input type="submit" value="send">
     </form>
     
