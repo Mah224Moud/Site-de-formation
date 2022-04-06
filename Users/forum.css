@@ -21,7 +21,7 @@ h1
 .cadre-message
 {
     border: solid 2px rgb(0, 0, 0);
-    height: 83vh;
+    height: 82vh;
     margin: 0 150px;
     overflow: auto;
     white-space :inherit; 
@@ -92,8 +92,9 @@ input[type=submit]
 
 input[type=submit]:hover
 {
-    background-color: brown;
-    transition: ease-in-out 1s;
+    background-color: green;
+    color: whitesmoke;
+    transition: ease-in-out 0.5s;
 }
 
 textarea
@@ -103,6 +104,13 @@ textarea
     resize : none;
     transition: ease-in-out 1s;
     padding: 0 15px;
+    background-color: rgb(68, 68, 68);
+    color: white;
+}
+
+::placeholder
+{
+    color: rgb(255, 255, 255);
 }
 
 

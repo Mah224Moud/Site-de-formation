@@ -10,19 +10,19 @@
     {
         if(isset($_POST['modif_mini_bio']) && !empty($_POST['modif_mini_bio']))
         {
-            $mini= nl2br($_POST[modif_mini_bio]);
-            $modif= $mysqlClient->prepare("UPDATE membres,profil SET mini_bio='$mini' WHERE membres.id= profil.idUser and  id=? ");
+            $mini= nl2br($_POST['modif_mini_bio']);
+            $modif= $mysqlClient->prepare("UPDATE membres,profil SET mini_bio= '$mini' WHERE membres.id= profil.idUser and id=? ");
             $modif->execute([$_SESSION['id']]);
         }
         if(isset($_POST['modif_bio']) && !empty($_POST['modif_bio']))
         {
-            $bio= nl2br($_POST[modif_bio]);
+            $bio= nl2br($_POST['modif_bio']);
             $modif= $mysqlClient->prepare("UPDATE membres,profil SET bio='$bio' WHERE membres.id= profil.idUser and  id=? ");
             $modif->execute([$_SESSION['id']]);
         }
         if(isset($_POST['modif_signature']) && !empty($_POST['modif_signature']))
         {
-            $signes= nl2br($_POST[modif_signature]);
+            $signes= nl2br($_POST['modif_signature']);
             $modif= $mysqlClient->prepare("UPDATE membres,profil SET signature= '$signes' WHERE membres.id= profil.idUser and id=? ");
             $modif->execute([$_SESSION['id']]);
         }
@@ -40,7 +40,25 @@
             $modif->execute([$_SESSION['id']]);
         }
 
-        header("Location:index.php");
+        if(!empty($_POST['modif_mini_bio']) || !empty($_POST['modif_bio']) ||  !empty($_POST['modif_signature']) || ($_POST['modif_nom'] !== $_SESSION['nom']) || ($_POST['modif_prenom'] !== $_SESSION['prenom']))
+        {?>
+            <script>
+                alert("Modification effectué avec succes :)");
+                window.location.replace("index.php"); 
+            </script>
+        <?php
+        }
+        else
+        {
+            ?>
+            <script>
+                alert("Aucune modification effectué");
+                window.location.replace("index.php"); 
+            </script>
+        <?php
+        }
+
+        //header("Location:index.php");
     }
 
     

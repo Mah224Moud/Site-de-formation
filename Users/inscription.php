@@ -83,7 +83,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest1");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\n");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -91,7 +91,7 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\ntest2");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\n");</script>
                             <?php
                         }
                     }
@@ -104,7 +104,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest3");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\n");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -112,7 +112,7 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!4");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!");</script>
                             <?php
                         }
                     }//s'il choisi une photo alors prendre celle ci
@@ -131,7 +131,7 @@
                         {
                             ?>
                                 <script>
-                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\ntest5");
+                                    alert("Votre compte a été crée :)\nAppuyez sur 'OK' pour être rediriger sur la page de connexion ;)\n");
                                     window.location.replace("connexion.php"); 
                                 </script>
                             <?php
@@ -139,7 +139,7 @@
                         else
                         {
                             ?>
-                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\ntest6");</script>
+                                <script>alert("Il y'a eu une erreur ce compte n'a pas été crée !!!\n");</script>
                             <?php
                         }
                     }
