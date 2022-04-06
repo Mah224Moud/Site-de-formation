@@ -1,16 +1,7 @@
 <?php
-include_once('database.php');
+//include_once('database.php');
 
-$insertion = 'INSERT INTO `essai2`(`id`, `nom`, `prenom`, `date`) VALUES (NULL, "MOUD", "DIALLO", "1997-10-10")';
-$creation = $mysqlClient->prepare($insertion);
-
-if($creation->execute())
-{
-    echo "save";
-}
-else
-    echo "not";
-
+    
 ?>
 
 
@@ -25,7 +16,10 @@ else
 <body>
     <h1>Bienvenue sur cours</h1>
 
-    <a href="test.php">test</a>
+    <form action="" method="post">
+        <input type="email" name="mail" id="">
+        <input type="submit" value="send">
+    </form>
     
 </body>
 </html>

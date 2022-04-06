@@ -31,6 +31,17 @@
         {
             $erreurs['email']= "L'email est obligatoire";
         }
+        else
+        {
+            //verfication email valid
+            $valid_email= "[a-z][a-z0-9]+@[a-z]+\.[a-z]+";
+            if(!preg_match("#$valid_email#", $_POST['email']))
+            {
+                $erreursCreation['email']= "Adresse mail invalide !!! Le format souhaité est: 'monmail@exemple.test'";
+            }
+        }
+        
+
         if(empty($_POST['civilite']))
         {
             $erreurs['civilite']= "Merci de renseigner la civilié";
@@ -43,6 +54,7 @@
         {
                 $erreurs['p_profil']= "Merci de choisir une photo dont la taille est inférieur ou égale à 2Mb";
         }
+        
         
 
 
@@ -252,6 +264,13 @@
                    <div class="erreurs">
                         <p>
                             <?= $erreurs['email'] ?>
+                        </p> 
+                   </div>
+            <?php endif ?>
+            <?php if (isset($erreursCreation['email'])): ?>
+                   <div class="erreurs">
+                        <p>
+                            <?= $erreursCreation['email'] ?>
                         </p> 
                    </div>
             <?php endif ?>
