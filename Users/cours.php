@@ -1,17 +1,17 @@
 <?php
 //include_once('database.php');
 
-    if(isset($_POST['essai']) && !empty($_POST['essai']))
-    {
-        echo "test";
-        $to      = 'doumouma113@gmail.com';
-        $subject = 'Confirmation Creation Compte';
-        $message = 'Bonjour Moud bienvenue parmi nous!';
-        $headers = 'From: no-reply@example.com';
-        $retour= mail("doumouma113@gmail.com", "Hello", "Essai envoie", "");
-        if($retour)
-            echo "send";
-    }
+if($_FILES)
+{
+    $picture= $_FILES['fichier']['name'];
+    $picExtension= new SplFileInfo($picture);
+    $getPicExtension= $picExtension->getExtension();
+
+    $possibleExtension= ['jpeg', 'jpg', 'png'];
+
+    if(!in_array($getPicExtension, $possibleExtension))
+        echo "y'a un soucis";
+}
     
 ?>
 
@@ -27,10 +27,10 @@
 <body>
     <h1>Bienvenue sur cours</h1>
 
-    <form action="" method="post">
-        <input type="text" name="essai" id="">
+    <!--<form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="fichier" id="">
         <input type="submit" value="send">
-    </form>
+    </form>-->
     
 </body>
 </html>

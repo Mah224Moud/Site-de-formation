@@ -55,6 +55,18 @@
                 $erreurs['p_profil']= "Merci de choisir une photo dont la taille est inférieur ou égale à 2Mb";
         }
         
+        //extension
+        if($_FILES['p_profil']['name']!="")
+        {
+            $picture= $_FILES['p_profil']['name'];
+            $picExtension= new SplFileInfo($picture);
+            $getPicExtension= $picExtension->getExtension();
+
+            $possibleExtension= ['jpeg', 'jpg', 'png'];
+
+            if(!in_array($getPicExtension, $possibleExtension))
+                $erreursCreation['p_profil']= "Attention seules les photos avec les extensions suivantes sont autorisées: 'jpeg' 'jpg' 'png'";
+        }
         
 
 
@@ -287,12 +299,19 @@
                    </div>
             <?php endif ?>
            
-            <!-- Photo -->
+            <!-- Photo --> 
             <label for="">Photo de profil: </label><input type="file" name="p_profil" value="<?= $_POST['p_profil'] ?? '' ?>"><br>
             <?php if (isset($erreurs['p_profil'])): ?>
                    <div class="erreurs">
                         <p>
                             <?= $erreurs['p_profil'] ?>
+                        </p> 
+                   </div>
+            <?php endif ?>
+            <?php if (isset($erreursCreation['p_profil'])): ?>
+                   <div class="erreurs">
+                        <p>
+                            <?= $erreursCreation['p_profil'] ?>
                         </p> 
                    </div>
             <?php endif ?>

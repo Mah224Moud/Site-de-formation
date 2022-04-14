@@ -24,7 +24,7 @@
 </head>
 <body>
     <div >
-        <a class="profil-lien" href="../Users/index.php"><Span>Accueil><?= $_SESSION['username'] ?></Span></a>
+        <a class="profil-lien" href="../Users/index.php"><Span>Accueil</Span></a>><span><?= $_SESSION['username']?></span>
     </div>
 
     <h1 class="profil-titre">Profil</h1>
