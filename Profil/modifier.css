@@ -22,7 +22,11 @@
     transition: all 1s ease-out;
 }
 
-
+.form-modify
+{
+    position: relative;
+    top: 20px;
+}
 .profil-titre
 {
     font-family: "Brush Script MT", cursive;
@@ -32,7 +36,7 @@
 #enregistrer-button
 {
     position: absolute;
-    top: 80px;
+    top: -50px;
     display: flex;
     width: 110px;
     right: 20%;

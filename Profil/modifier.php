@@ -83,7 +83,7 @@
 
     <h1 class="profil-titre">Modifier</h1>
 
-    <form action="" method="POST">
+    <form action="" method="POST" class="form-modify">
         <div id="enregistrer-button">
             <div id="modifier">
                 <input type="submit" value="Enregistrer" name="save">
